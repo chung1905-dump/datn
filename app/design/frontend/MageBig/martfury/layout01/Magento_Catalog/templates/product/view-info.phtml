@@ -1,0 +1,27 @@
+<?php $_mbHelper = $this->helper('MageBig\MbFrame\Helper\Data'); ?>
+<div class="product-info-main-top product-info-main">
+    <div class="row align-items-center">
+        <div class="col-12 col-lg-8">
+            <?= $this->getChildHtml('page.main.title') ?>
+            <div class="info-after-title">
+                <?= $this->getChildHtml('product.info.review') ?>
+                <?= $this->getChildHtml('product.info.sku') ?>
+            </div>
+        </div>
+        <?php if ($_mbHelper->getConfig('mbconfig/product_view/share_social')) : ?>
+        <div class="col-12 col-lg-4">
+            <?= $this->getChildHtml('product.info.social.share') ?>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-5">
+        <?= $this->getChildHtml('product.info.media') ?>
+    </div>
+    <div class="col-12 col-md-6 col-lg-7">
+        <?= $this->getChildHtml('product.info.main') ?>
+
+        <?= $_mbHelper->getCategoryStore($block->getProduct()); ?>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<script>
+    require([
+        'Magento_Ui/js/lib/view/utils/async',
+        'MageBig_SyntaxCms/js/editor',
+        'domReady!'
+    ], function ($, editor) {
+
+        <?php foreach($block->getElements() as $element):?>
+        $.async('<?php echo $element['selector'];?>', function (elem) {
+            //if (!elem.id) return;
+            function checkForVisible() {
+                // if (!elem.getBoundingClientRect().height) {
+                //     setTimeout(checkForVisible, 300);
+                //     return;
+                // }
+
+                if (window.tinyMCE && window.tinyMCE.majorVersion === '4' && !window.tinyMCE.activeEditor) {
+                    //console.log("tinyMCE 4 not loaded");
+                    setTimeout(checkForVisible, 1000);
+                    return;
+                } else if (window.tinyMCE_GZ && !window.tinyMCE_GZ.loaded) {
+                    //console.log("not loaded");
+                    setTimeout(checkForVisible, 1000);
+                    return;
+                }
+                $(elem).addClass('hide-textarea');
+                editor.activedCM(elem,
+                    '<?= (is_array($element['type']) ? $element['type'][0] : $element['type']);?>',
+                    <?= $block->getJsonOption();?>
+                );
+            }
+
+            setTimeout(checkForVisible, 0);
+        });
+        <?php endforeach; ?>
+    });
+</script>
