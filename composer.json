@@ -12,8 +12,11 @@
     },
     "version": "2.3.7",
     "require": {
+        "avada/module-proofo": "^1.0",
+        "magento/composer-root-update-plugin": "~1.1",
         "magento/product-community-edition": "2.3.7",
-        "magento/composer-root-update-plugin": "~1.1"
+        "mageplaza/magento-2-vietnamese-language-pack": "dev-master",
+        "mageplaza/module-smtp": "^4.3"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -77,4 +80,3 @@
         "magento-force": "override"
     }
 }
-
