@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="tattranvnpay" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>VNPAY</label>
+                <field id="active" translate="label comment" sortOrder="1" type="select" showInDefault="1"
+                       showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="0"
+                       showInWebsite="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="paymentUrl" translate="label" type="text" showInWebsite="1" showInStore="0" showInDefault="1"
+                       sortOrder="30" canRestore="1" >
+                    <label>Payment URL</label>
+                </field>
+                <field id="returnUrl" translate="label" type="text" showInDefault="1" showInStore="0" showInWebsite="1"
+                       sortOrder="40" canRestore="1">
+                    <label>Return URL</label>
+                </field>
+                <field id="tmnCode" sortOrder="50" translate="label" type="text" showInWebsite="1" showInStore="0"
+                       showInDefault="1" canRestore="1">
+                    <label>Terminal Code</label>
+                </field>
+                <field id="secretCode" showInDefault="1" type="text" showInStore="0" showInWebsite="1" translate="label"
+                       sortOrder="60" canRestore="1">
+                    <label>Secret Code</label>
+                </field>
+                <field id="orderStatus" sortOrder="70" translate="label" showInWebsite="1" showInStore="1" type="select"
+                       showInDefault="1" canRestore="1">
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Payment in Applicable Countries</label>
+                    <frontend_class>payment-applicable-country</frontend_class>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Payment in Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="showmethod" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Show Method if Not Applicable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_class>payment-skip-hide</frontend_class>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

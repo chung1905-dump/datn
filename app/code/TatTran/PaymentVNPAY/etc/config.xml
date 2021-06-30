@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <tattranvnpay>
+                <active>0</active>
+                <title>VNPAY</title>
+                <model>TatTran\PaymentVNPAY\Model\tattranvnpay</model>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+                <orderStatus>pending</orderStatus>
+                <tmnCode>1SNJ89L8</tmnCode>
+                <secretCode>ODJLXOCEWMFIEJXHJNMZUVFFVRDDXLOT</secretCode>
+                <paymentUrl>http://sandbox.vnpayment.vn/paymentv2/vpcpay.html</paymentUrl>
+                <returnUrl>http://localhost/vnpay_php/vnpay_return.php</returnUrl>
+            </tattranvnpay>
+        </payment>
+    </default>
+</config>
